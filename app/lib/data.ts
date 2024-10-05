@@ -177,6 +177,31 @@ export async function fetchPeople(
   }
 }
 
+export async function fetchById(
+  query: number
+) {
+  try {
+    const people = await sql<Person>`
+      SELECT
+        persons.personid,
+        persons.name,
+        persons.email,
+        persons.housematenum,
+        persons.genderpref,
+        persons.budget,
+        persons.location
+      FROM persons
+      WHERE
+        persons.id = ${`%${query}%`}
+    `;
+
+    return people.rows;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch people.');
+  }
+}
+
 export async function fetchInvoicesPages(query: string) {
   try {
     const count = await sql`SELECT COUNT(*)
