@@ -78,7 +78,7 @@ export default async function InvoicesTable({
                 >
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex items-center gap-3">
-                    <Link href = "person" className="hover:bg-blue-300">
+                    <Link href = "person" className="hover:bg-red-300">
                       <p>{person.name}</p>
                       </Link>
                     </div>
