@@ -6,6 +6,7 @@ import {
   InvoicesTable,
   LatestInvoiceRaw,
   Revenue,
+  Person,
 } from './definitions';
 import { formatCurrency } from './utils';
 
@@ -148,6 +149,31 @@ export async function fetchPerson(
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch invoices.');
+  }
+}
+
+export async function fetchPeople(
+  query: string
+) {
+  try {
+    const people = await sql<Person>`
+      SELECT
+        persons.personid,
+        persons.name,
+        persons.email,
+        persons.housematenum,
+        persons.genderpref,
+        persons.budget,
+        persons.location
+      FROM persons
+      WHERE
+        persons.name ILIKE ${`%${query}%`}
+    `;
+
+    return people.rows;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch people.');
   }
 }
 
