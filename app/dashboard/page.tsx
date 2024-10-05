@@ -25,15 +25,15 @@ export default async function Page() {
         Your Information
       </h1>
       <div className="w-full">
-        <Table query = "michael@novotny.com"/>
+        <Table query = "Jane Doe"/>
       <div className="mt-5 flex w-full justify-center">
         {/* <Pagination totalPages={totalPages} /> */}
       </div>
     </div>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <Card title="Seeking" value={"3 housemates"} type="collected" />
-        <Card title="Gender Preference" value={"Beans"} type="pending" />
-        <Card title="Location Preference" value={"College Town"} type="invoices" />
+        <Card title="Gender Preference" value={"Female"} type="pending" />
+        <Card title="Location Preference" value={"Collegetown"} type="invoices" />
         <Card
           title="Budget"
           value={formatCurrency(100000)}

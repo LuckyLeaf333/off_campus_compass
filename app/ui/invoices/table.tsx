@@ -3,6 +3,7 @@ import { UpdateInvoice, DeleteInvoice } from '@/app/ui/invoices/buttons';
 import InvoiceStatus from '@/app/ui/invoices/status';
 import { formatDateToLocal, formatCurrency } from '@/app/lib/utils';
 import { fetchPeople } from '@/app/lib/data';
+import { Card } from '@/app/ui/dashboard/cards';
 
 export default async function InvoicesTable({
   query
